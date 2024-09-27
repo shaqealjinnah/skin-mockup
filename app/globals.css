@@ -1,27 +1,25 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Not using TailwindCSS to showcase CSS naming and conventions */
+
+/* FONTS */
+
+@font-face {
+  font-family: "Nantes";
+  src: url("./fonts/NantesWeb-Regular.woff2");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "Nantes Italic 400";
+  src: url("./fonts/NantesWeb-Regular.woff2");
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+@font-face {
+  font-family: "Red Hat Display 500";
+  src: url("./fonts/RedHatDisplay-Medium.woff");
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Red Hat Display 600";
+  src: url("./fonts/RedHatDisplay-SemiBold.woff");
 }
 
 * {
@@ -30,13 +28,326 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html {
+  font-family: "Nantes";
+  background-color: #f8f5ef;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+li {
+  font-family: "Red Hat Display 600";
+  font-size: 14px;
+  font-weight: 600;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.row {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0  20px;
+}
+
+/* 
+
+NAVBAR 
+
+*/
+
+.navbar {
+  padding: 12px 0;
+  background-color: transparent;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  position: relative;
+  padding: 0 32px;
+}
+
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  transition: 300ms ease;
+
+}
+
+.navbar__burger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  transition: 300ms ease;
+}
+
+.navbar__burger:hover span:nth-child(even) {
+  width: 20px;
+}
+
+
+.navbar__burger:hover span {
+  background-color: #035f1d;
+}
+
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.navbar__link {
+  text-decoration: none;
+  line-height: 18.52px;
+  letter-spacing: 0.05em;
+  color: #fff;
+  transition: 300ms ease;
+  position: relative;
+}
+
+.navbar__link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  right: 0;
+  background-color: #035f1d;
+  transition: all 300ms ease;
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+
+.navbar__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 32px;
+}
+
+.navbar__logo-image path {
+  transition: 300ms ease-in-out;
+}
+
+.navbar__logo-image:hover path {
+  fill: #035f1d;
+}
+
+.navbar__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #035f1d;
+  z-index: 10;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease-in-out;
+}
+
+.navbar__backdrop--visible {
+  visibility: visible;
+  opacity: 100;
+}
+
+.navbar__close {
+  position: absolute;
+  top: 8px;
+  right: 36px;
+  font-size: 36px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 300ms ease;
+}
+
+.navbar__close:hover {
+  color: #ff9900;
+}
+
+.navbar__menu-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+}
+
+.navbar__menu-link {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  display: block;
+  margin: 20px 0;
+  transition: 300ms ease;
+}
+
+.navbar__menu-link:hover {
+  color: #ff9900;
+}
+
+/* 
+
+HERO
+
+*/
+
+#hero {
+  height: 100vh;
+  color: #fff;
+  position: relative;
+  background: url("./assets/hero-img.png") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__heading {
+  text-align: center;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 67px;
+  font-family: "Red Hat Display 500";
+}
+
+.hero__heading--italicise {
+  font-family: "Nantes Italic 400";
+  font-style: italic;
+}
+
+
+.hero__cta {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translate(-50%);
+  transition: 300ms ease;
+  color: #fff;
+  font-size: 25px;
+  font-family: "Nantes Italic 400";
+  font-style: italic;
+}
+
+.hero__cta:hover::after {
+  background-color: #035f1d;
+  width: 110%;
+  left: -4%;
+  right: -4%;
+}
+
+.hero__cta::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 2px;
+  right: 3px;
+  height: 1px;
+  width: calc(100% - 5px);
+  background-color: #fff;
+  transition: 300ms ease;
+}
+
+/* 
+
+MARQUEE SCROLLING TEXT
+
+*/
+
+.marquee {
+  font-size: 15px;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+
+  --gap: 50px;
+  display: flex;
+  gap: var(--gap);
+}
+
+.marquee:hover ul {
+  animation-play-state: paused;
+}
+
+.marquee ul {
+  list-style: none;
+  flex-shrink: 0;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap);
+
+  animation: scroll 20s linear infinite;
+}
+
+.marquee__text {
+  font-size: 30px;
+  font-family: "Red Hat Display 600";
+  line-height: 39px;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #035f1d;
+  position: relative;
+}
+
+.marquee__text::after {
+  content: "•";
+  color: #035f1d;
+  position: absolute;
+  right: -30px;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+/* 
+
+Small Laptop, Tablets and Mobile 
+
+*/
+
+@media (max-width: 1080px) {
+  .navbar__burger {
+    display: flex;
+  }
+
+  .navbar__container {
+    justify-content: flex-end;
+  }
+
+  .navbar__links {
+    display: none;
+  }
+
+  .hero__heading {
+    font-size: 40px;
   }
 }
