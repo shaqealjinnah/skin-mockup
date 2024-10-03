@@ -1,27 +1,23 @@
-/* Not using TailwindCSS to showcase CSS naming and conventions */
-
+@charset "UTF-8";
+/* VARIABLES */
 /* FONTS */
-
 @font-face {
   font-family: "Nantes";
   src: url("./fonts/NantesWeb-Regular.woff2");
 }
-
 @font-face {
   font-family: "Nantes Italic 400";
   src: url("./fonts/NantesWeb-Regular.woff2");
 }
-
 @font-face {
   font-family: "Red Hat Display 500";
   src: url("./fonts/RedHatDisplay-Medium.woff");
 }
-
 @font-face {
   font-family: "Red Hat Display 600";
   src: url("./fonts/RedHatDisplay-SemiBold.woff");
 }
-
+/* GLOBAL */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -45,18 +41,14 @@ a {
   color: #fff;
 }
 
+/* ROW CLASS */
 .row {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0  20px;
+  padding: 0 20px;
 }
 
-/* 
-
-NAVBAR 
-
-*/
-
+/* NAVBAR */
 .navbar {
   padding: 12px 0;
   background-color: transparent;
@@ -66,7 +58,6 @@ NAVBAR
   left: 0;
   width: 100%;
 }
-
 .navbar__container {
   display: flex;
   justify-content: space-between;
@@ -75,39 +66,30 @@ NAVBAR
   position: relative;
   padding: 0 32px;
 }
-
 .navbar__burger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
   transition: 300ms ease;
-
 }
-
+.navbar__burger:hover span:nth-child(even) {
+  width: 20px;
+}
+.navbar__burger:hover span {
+  background-color: #035f1d;
+}
 .navbar__burger-line {
   width: 25px;
   height: 3px;
   background-color: #fff;
   transition: 300ms ease;
 }
-
-.navbar__burger:hover span:nth-child(even) {
-  width: 20px;
-}
-
-
-.navbar__burger:hover span {
-  background-color: #035f1d;
-}
-
-
 .navbar__links {
   display: flex;
   list-style: none;
   gap: 40px;
 }
-
 .navbar__link {
   text-decoration: none;
   line-height: 18.52px;
@@ -116,7 +98,6 @@ NAVBAR
   transition: 300ms ease;
   position: relative;
 }
-
 .navbar__link::after {
   content: "";
   position: absolute;
@@ -127,13 +108,10 @@ NAVBAR
   background-color: #035f1d;
   transition: all 300ms ease;
 }
-
 .navbar__link:hover::after {
   width: 100%;
   left: 0;
 }
-
-
 .navbar__logo {
   position: absolute;
   top: 50%;
@@ -141,15 +119,12 @@ NAVBAR
   transform: translate(-50%, -50%);
   height: 32px;
 }
-
 .navbar__logo-image path {
   transition: 300ms ease-in-out;
 }
-
 .navbar__logo-image:hover path {
   fill: #035f1d;
 }
-
 .navbar__backdrop {
   position: fixed;
   top: 0;
@@ -166,12 +141,10 @@ NAVBAR
   align-items: center;
   transition: all 300ms ease-in-out;
 }
-
 .navbar__backdrop--visible {
   visibility: visible;
   opacity: 100;
 }
-
 .navbar__close {
   position: absolute;
   top: 8px;
@@ -183,11 +156,9 @@ NAVBAR
   cursor: pointer;
   transition: 300ms ease;
 }
-
 .navbar__close:hover {
   color: #ff9900;
 }
-
 .navbar__menu-links {
   list-style: none;
   display: flex;
@@ -196,7 +167,6 @@ NAVBAR
   justify-content: center;
   gap: 45px;
 }
-
 .navbar__menu-link {
   color: #fff;
   font-size: 24px;
@@ -205,17 +175,11 @@ NAVBAR
   margin: 20px 0;
   transition: 300ms ease;
 }
-
 .navbar__menu-link:hover {
   color: #ff9900;
 }
 
-/* 
-
-HERO
-
-*/
-
+/* HERO */
 #hero {
   height: 100vh;
   color: #fff;
@@ -226,22 +190,18 @@ HERO
   justify-content: center;
   align-items: center;
 }
-
-.hero__heading {
+#hero .hero__heading {
   text-align: center;
   font-size: 56px;
   font-weight: 400;
   line-height: 67px;
   font-family: "Red Hat Display 500";
 }
-
-.hero__heading--italicise {
+#hero .hero__heading--italicise {
   font-family: "Nantes Italic 400";
   font-style: italic;
 }
-
-
-.hero__cta {
+#hero .hero__cta {
   position: absolute;
   bottom: 40px;
   left: 50%;
@@ -252,15 +212,13 @@ HERO
   font-family: "Nantes Italic 400";
   font-style: italic;
 }
-
-.hero__cta:hover::after {
+#hero .hero__cta:hover::after {
   background-color: #035f1d;
   width: 110%;
   left: -4%;
   right: -4%;
 }
-
-.hero__cta::after {
+#hero .hero__cta::after {
   content: "";
   position: absolute;
   bottom: -6px;
@@ -272,27 +230,19 @@ HERO
   transition: 300ms ease;
 }
 
-/* 
-
-MARQUEE SCROLLING TEXT
-
-*/
-
+/* MARQUEE SCROLLING TEXT */
 .marquee {
   font-size: 15px;
   overflow: hidden;
   user-select: none;
   cursor: pointer;
-
   --gap: 50px;
   display: flex;
   gap: var(--gap);
 }
-
 .marquee:hover ul {
   animation-play-state: paused;
 }
-
 .marquee ul {
   list-style: none;
   flex-shrink: 0;
@@ -301,10 +251,8 @@ MARQUEE SCROLLING TEXT
   justify-content: space-between;
   align-items: center;
   gap: var(--gap);
-
   animation: scroll 20s linear infinite;
 }
-
 .marquee__text {
   font-size: 30px;
   font-family: "Red Hat Display 600";
@@ -314,7 +262,6 @@ MARQUEE SCROLLING TEXT
   color: #035f1d;
   position: relative;
 }
-
 .marquee__text::after {
   content: "•";
   color: #035f1d;
@@ -327,27 +274,20 @@ MARQUEE SCROLLING TEXT
     transform: translateX(calc(-100% - var(--gap)));
   }
 }
-
-/* 
-
-Small Laptop, Tablets and Mobile 
-
-*/
-
+/* MEDIA QUERIES */
 @media (max-width: 1080px) {
   .navbar__burger {
     display: flex;
   }
-
   .navbar__container {
     justify-content: flex-end;
   }
-
   .navbar__links {
     display: none;
   }
-
-  .hero__heading {
+  #hero .hero__heading {
     font-size: 40px;
   }
 }
+
+/*# sourceMappingURL=globals.css.map */

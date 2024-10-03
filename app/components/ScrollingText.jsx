@@ -13,13 +13,13 @@ function ScrollingText() {
   return (
     <div className="marquee">
       <ul className="marquee__inner">
-        {marqueeText.map((text) => (
-          <li className="marquee__text animate--marquee">{text}</li>
+        {marqueeText.map((text, index) => (
+          <li className="marquee__text animate--marquee" key={index}>{text}</li>
         ))}
       </ul>
       <ul className="marquee__inner">
-        {marqueeText.map((text) => (
-          <li className="marquee__text animate--marquee">{text}</li>
+        {marqueeText.map((text, index) => (
+          <li className="marquee__text animate--marquee" key={index}>{text}</li>
         ))}
       </ul>
     </div>
